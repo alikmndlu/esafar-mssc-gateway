@@ -17,10 +17,7 @@ public class GatewayConfig {
     public RouteLocator routes(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route("AUTH-SERVICE", r -> r.path("/api/auth/**").filters(f -> f.filter(filter)).uri("lb://AUTH-SERVICE"))
-                .route("alert", r -> r.path("/alert/**").filters(f -> f.filter(filter)).uri("lb://alert"))
-                .route("USER-SERVICE", r -> r.path("/api/users/**").filters(f -> f.filter(filter)).uri("lb://USER-SERVICE"))
-                .route("echo", r -> r.path("/echo/**").filters(f -> f.filter(filter)).uri("lb://echo"))
-                .route("hello", r -> r.path("/hello/**").filters(f -> f.filter(filter)).uri("lb://hello")).build();
+                .route("USER-SERVICE", r -> r.path("/api/users/**").filters(f -> f.filter(filter)).uri("lb://USER-SERVICE")).build();
     }
 
 }
